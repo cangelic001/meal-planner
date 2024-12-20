@@ -1,0 +1,93 @@
+.nav-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #ffffff;
+    padding: 0 20px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .tab-home {
+      position: relative;
+      text-decoration: none;
+      color: #444;
+      font-size: 16px;
+      padding: 10px 20px;
+      background: #ffb7d7;
+      border: 1px solid #ddd;
+      border-left: none;
+      border-bottom: none;
+      border-radius: 15px 15px 0 0;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 3px -3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-home:hover {
+    background: #ff98cb;
+    color: #ffffff;
+  }
+  
+  .tab-vm {
+    position: relative;
+    text-decoration: none;
+    color: #444;
+    font-size: 16px;
+    padding: 10px 20px;
+    background: #b7dfff;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-radius: 15px 15px 0 0;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 3px -3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-vm:hover {
+    background: #68cfff;
+    color: #ffffff;
+  }
+  
+  .tab-bmp {
+    position: relative;
+    text-decoration: none;
+    color: #444;
+    font-size: 16px;
+    padding: 10px 20px;
+    background: #fff3b7;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 15px 15px 0 0;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 3px -3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-bmp:hover {
+    background: #fbe200;
+    color: #ffffff;
+  }
+  
+  .tab-vmp {
+    position: relative;
+    text-decoration: none;
+    color: #444;
+    font-size: 16px;
+    padding: 10px 20px;
+    background: #b4fbce;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 15px 15px 0 0;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 3px -3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-vmp:hover {
+    background: #6dff49;
+    color: #ffffff;
+  }
+  

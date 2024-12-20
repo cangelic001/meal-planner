@@ -4,12 +4,13 @@ import './App.css'
 // Bootstrap
 import MealExample from './components/MealExample';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import NavBar from './components/NavBar';
 
 const App = () => {
 
   return (
     <>
+      <NavBar></NavBar>
       <h1>Hello world!</h1>
       <section className='meal-example'>
         <MealExample />
