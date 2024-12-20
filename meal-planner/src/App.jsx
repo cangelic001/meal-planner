@@ -4,7 +4,7 @@ import './App.css'
 // Bootstrap
 import MealExample from './components/MealExample';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 
 const App = () => {
 
