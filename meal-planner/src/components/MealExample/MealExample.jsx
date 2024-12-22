@@ -22,7 +22,7 @@ const MealExample = (props) => {
                         <br />
                         Difficulty : {recipe?.difficulty}
                       </Card.Text>
-                      <Button variant="primary">Go somewhere</Button>
+                      <Button variant="primary">View Recipe in Detail</Button>
                   </Card.Body>
               </Card>
           </section>

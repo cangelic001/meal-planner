@@ -17,6 +17,7 @@ const App = () => {
 
   const [recipes, setRecipes] = useState([]);
 
+  // fetch API data for meals to display in View Meals tab
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(apiUrl);
@@ -27,14 +28,16 @@ const App = () => {
     fetchData();
   }, []);
 
+// add function 
+
   return (
     <>
       <NavBar></NavBar>
-      <h1 className='tagline'>Meal planning has never been easier!</h1>
+      <h1 className='tagline'>Meal planning tagline</h1>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/view-meals' element={<ViewMeals recipes={recipes}/>}/>
-        <Route path='/build-meal-plan' element={<BuildMealPlan />}/>
+        <Route path='/build-meal-plan' element={<BuildMealPlan recipes={recipes}/>}/>
         <Route path='/view-meal-plans' element={<ViewMealPlans />}/>
         <Route path="*" element={<h1>Whoops nothing here!</h1>} />
       </Routes>

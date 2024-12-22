@@ -1,4 +1,4 @@
-import MealExample from '../MealExample';
+import MealExample from '../MealExample/MealExample';
 
 const ViewMeals = (props) => {
     const { recipes } = props; // declare recipes var, each item in the array

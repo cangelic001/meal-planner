@@ -1,0 +1,14 @@
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+.add-button {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.add-button:last-child {
+  margin-right: 0;
+}

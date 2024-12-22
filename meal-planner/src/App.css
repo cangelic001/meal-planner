@@ -9,6 +9,12 @@
   padding: 4em;
 }
 
+.tagline {
+  margin-top: 60px; 
+  padding: 10px;
+  text-align: center;
+}
+
 .recipes {
   display: flex;
   flex-direction: row;
