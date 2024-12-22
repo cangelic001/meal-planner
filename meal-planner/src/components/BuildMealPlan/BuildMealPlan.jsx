@@ -47,9 +47,9 @@ const BuildMealPlan = (props) => {
                     return (
                         <div key={recipe.id}>
                             <MealExample key={recipe.id} recipe={recipe} />
-                            <Button className='add-button' style={{ borderColor: 'transparent', backgroundColor: 'mediumvioletred', color: 'white' }}>Add to Breakfast</Button>
-                            <Button className='add-button' style={{ borderColor: 'transparent', backgroundColor: 'palevioletred', color: 'white' }}>Add to Lunch</Button>
-                            <Button className='add-button' style={{ borderColor: 'transparent', backgroundColor: 'hotpink', color: 'white' }}>Add to Dinner</Button>
+                            <Button className='add-button' style={{ borderColor: 'transparent', backgroundColor: 'mediumvioletred', color: 'white' }}>Breakfast</Button>
+                            <Button className='add-button' style={{ borderColor: 'transparent', backgroundColor: 'palevioletred', color: 'white' }}>Lunch</Button>
+                            <Button className='add-button' style={{ borderColor: 'transparent', backgroundColor: 'hotpink', color: 'white' }}>Dinner</Button>
                         </div>
                     );
                 })}

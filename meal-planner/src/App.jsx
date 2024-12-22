@@ -28,7 +28,18 @@ const App = () => {
     fetchData();
   }, []);
 
-// add function 
+// add function for Build a Meal Plan tab
+  const initialPlan = {
+    breakfast: 0,
+    lunch: 0,
+    dinner: 0
+   }
+  const [dailyPlanBuilder, setDailyPlanBuilder] = useState([initialPlan])
+
+  const addToPlan = (mealChosen) => {
+    setDailyPlanBuilder({...dailyPlanBuilder, [mealType]: mealName})
+
+  };
 
   return (
     <>
