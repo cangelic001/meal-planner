@@ -1,19 +1,32 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import './MealExample.css';
 
-function MealExample() {
+const MealExample = (props) => {
+  const { recipe } = props; // declare recipe var, each item in the array
+
+  const totalTimeNeeded = recipe?.prepTimeMinutes + recipe?.cookTimeMinutes;
+
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+      <div>
+          <section>
+              <Card style={{ width: '30rem', height: '40rem'}}> 
+                  {/* has image, body (title + text) */}
+                  <Card.Img variant="top" src={recipe?.image} />
+                  <Card.Body className="card-body">
+                      <Card.Title>{recipe?.name}</Card.Title>
+                      <Card.Text>
+                        Calories : {recipe?.caloriesPerServing} cals
+                        <br />
+                        Total Time (Prep + Cook) : {totalTimeNeeded} minutes
+                        <br />
+                        Difficulty : {recipe?.difficulty}
+                      </Card.Text>
+                      <Button variant="primary">Go somewhere</Button>
+                  </Card.Body>
+              </Card>
+          </section>
+      </div>
   );
 }
 

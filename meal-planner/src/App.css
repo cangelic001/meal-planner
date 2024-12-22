@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 5rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -9,9 +9,17 @@
   padding: 4em;
 }
 
-.meal-example {
+.recipes {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
