@@ -1,10 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './MealExample.css';
+import { Link } from 'react-router-dom';
 
 const MealExample = (props) => {
-  const { recipe } = props; // declare recipe var, each item in the array
-
+  const { recipe } = props; 
+  
   const totalTimeNeeded = recipe?.prepTimeMinutes + recipe?.cookTimeMinutes;
 
   return (
@@ -16,13 +17,15 @@ const MealExample = (props) => {
                   <Card.Body className="card-body">
                       <Card.Title>{recipe?.name}</Card.Title>
                       <Card.Text>
-                        Calories : {recipe?.caloriesPerServing} cals
+                        Calories : {recipe?.caloriesPerServing} calories
                         <br />
                         Total Time (Prep + Cook) : {totalTimeNeeded} minutes
                         <br />
                         Difficulty : {recipe?.difficulty}
                       </Card.Text>
+                      <Link to={`/view-meals/${recipe.id}`}>
                       <Button variant="primary">View Recipe in Detail</Button>
+                      </Link>
                   </Card.Body>
               </Card>
           </section>
