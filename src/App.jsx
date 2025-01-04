@@ -4,7 +4,8 @@ import './App.css'
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+ 
+// 
 // Components
 import NavBar from './components/NavBar/NavBar';
 import ViewMeals from './components/ViewMeals/ViewMeals';
