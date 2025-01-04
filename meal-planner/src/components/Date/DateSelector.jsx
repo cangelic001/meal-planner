@@ -1,13 +1,14 @@
 import { useState } from 'react';
+import { useDate } from '../DateContext';
 
 const DateSelector = () => {
-  const [selectedDate, setSelectedDate] = useState('');
-
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-  };
+  // selectedDate was here
+  // handleDateChange was here
+  const { selectedDate, handleDateChange } = useDate();
 
   const today = new Date().toLocaleDateString('en-CA');
+
+  const formattedDate = selectedDate instanceof Date ? selectedDate.toLocaleDateString('en-CA') : selectedDate;
 
   return (
     <div>
@@ -15,7 +16,7 @@ const DateSelector = () => {
       <input
         id="date-picker"
         type="date"
-        value={selectedDate}
+        value={formattedDate}
         onChange={handleDateChange}
         min={today}
       />

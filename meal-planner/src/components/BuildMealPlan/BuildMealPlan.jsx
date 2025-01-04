@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/esm/Button';
 import MealExample from '../MealExample/MealExample';
 import DateSelector from '../Date/DateSelector';
-import ViewMeals from '../ViewMeals/ViewMeals';
+import { useDate } from '../DateContext';
 import {useState} from 'react';
 
 const BuildMealPlan = (props) => {
@@ -11,6 +11,8 @@ const BuildMealPlan = (props) => {
     const [breakfastRecipes, setBreakfastRecipes] = useState([]);
     const [lunchRecipes, setLunchRecipes] = useState([]);
     const [dinnerRecipes, setDinnerRecipes] = useState([]);
+
+    const { selectedDate } = useDate();
 
     const handleAddRecipe = (mealType, recipeName) => {
         if (mealType === 'breakfast') {
@@ -95,8 +97,9 @@ const BuildMealPlan = (props) => {
                         </Card.Text>
                     </Card.Body>
                 <br />
-
-                <Button style={{ width: '10rem' }}>Submit</Button>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>                
+                    <Button style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '10rem' }}>Submit</Button>
+                </div> 
             </Card>
             <h1>Click the buttons to add a menu for breakfast, lunch or dinner</h1>
 
