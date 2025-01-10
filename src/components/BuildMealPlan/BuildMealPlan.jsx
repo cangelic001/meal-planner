@@ -4,16 +4,17 @@ import MealExample from '../MealExample/MealExample';
 import DateSelector from '../Date/DateSelector';
 import { useDate } from '../DateContext';
 import { useState } from 'react';
-import submitMealPlanToAirtable from '../services/airtableService';
+import { submitMealPlanToAirtable } from '../services/submitToAirtableService';
+import { fetchMealPlanFromAirtable } from '../services/fetchFromAirtableService';
 
 const BuildMealPlan = (props) => {
-    const { recipes } = props; // declare recipes var, each item in the array
+    const { recipes } = props; 
 
     const [breakfastRecipes, setBreakfastRecipes] = useState([]);
     const [lunchRecipes, setLunchRecipes] = useState([]);
     const [dinnerRecipes, setDinnerRecipes] = useState([]);
 
-    const { selectedDate } = useDate();
+    const { selectedDate, setSelectedDate } = useDate();
 
     const handleAddRecipe = (mealType, recipeName, recipeId) => {
         const mealData = { name: recipeName, id: recipeId};
@@ -37,66 +38,66 @@ const BuildMealPlan = (props) => {
         }
     };
 
-        // to add to submit button
-        const handleSubmit = async () => {
-            console.log('handlesubmit', selectedDate)
-            console.log('selectedDate type:', typeof selectedDate);
+    const handleSubmit = async () => {
+        const formattedDate = new Date(selectedDate).toISOString().split('T')[0]; 
 
-            // Convert the string to a Date object if needed and format it
-            const formattedDate = new Date(selectedDate).toISOString().split('T')[0]; // "YYYY-MM-DD" format
-            console.log('Formatted date:', formattedDate, typeof formattedDate); // Check the format
-        
-            try {
-                // Submit breakfast recipes
-                for (let recipe of breakfastRecipes) {
-                    const mealData = {
-                        date: formattedDate,
-                        name: recipe.name,
-                        type: 'breakfast',
-                        recipeId: recipe.id,  
-                    };
-                    console.log('id type:', typeof mealData.recipeId); // TO DELETE
-                    console.log('name type:', typeof mealData.name); // TO DELETE
-                    console.log('meal type type:', typeof mealData.type); // TO DELETE
-                    const response = await submitMealPlanToAirtable(mealData);
-                    console.log('Breakfast meal submitted:', response);
-                }
-        
-                // Submit lunch recipes
-                for (let recipe of lunchRecipes) {
-                    const mealData = {
-                        date: formattedDate,
-                        name: recipe.name,
-                        type: 'lunch',
-                        recipeId: recipe.id,  
-                    };
-                    const response = await submitMealPlanToAirtable(mealData);
-                    console.log('Lunch meal submitted:', response);
-                }
-        
-                // Submit dinner recipes
-                for (let recipe of dinnerRecipes) {
-                    const mealData = {
-                        date: formattedDate,
-                        name: recipe.name,
-                        type: 'dinner',
-                        recipeId: recipe.id,  
-                    };
-                    const response = await submitMealPlanToAirtable(mealData);
-                    console.log('Dinner meal submitted:', response);
-                }
-        
-                alert('Meal plan submitted successfully!');
-            } catch (error) {
-                console.error('Error submitting meal plan:', error);
-                alert('An error occurred while submitting the meal plan.');
+        try {
+            const allMealPlans = await fetchMealPlanFromAirtable(formattedDate);
+
+            const existingMealPlans = allMealPlans.filter(plan => plan.date === formattedDate);
+
+            if (existingMealPlans.length > 0) {
+                alert(`A meal plan already exists for ${formattedDate}. Please choose a different date.`);
+                
+                setBreakfastRecipes([]);
+                setLunchRecipes([]);
+                setDinnerRecipes([]);
+                
+                return;  
             }
-        };
-        
 
+            const meals = [
+        { recipes: breakfastRecipes, type: 'breakfast' },
+        { recipes: lunchRecipes, type: 'lunch' },
+        { recipes: dinnerRecipes, type: 'dinner' },
+    ];
+
+    for (const { recipes, type } of meals) {
+        for (const recipe of recipes) {
+            const mealData = {
+                date: formattedDate,
+                name: recipe.name,
+                type,
+                recipeId: recipe.id,
+            };
+            try {
+                const response = await submitMealPlanToAirtable(mealData);
+                console.log(`${type.charAt(0).toUpperCase() + type.slice(1)} meal submitted:`, response);
+            } catch (error) {
+                console.error(`Error submitting ${type} meal:`, error);
+            }
+        }
+    }
+            
+            setBreakfastRecipes([]);
+            setLunchRecipes([]);
+            setDinnerRecipes([]);
+
+            const today = new Date().toISOString().split('T')[0]; 
+
+            setSelectedDate(today);
+
+            alert('Meal plan submitted successfully!');
+        } catch (error) {
+            console.error('Error submitting meal plan:', error);
+            alert('An error occurred while submitting the meal plan.');
+        }
+    };
+        
     return (
         <div>
             <Card>
+                <h1>Meal Plan Builder</h1>
                 <DateSelector />
                 <br />
                 {/* Breakfast */}
@@ -158,10 +159,10 @@ const BuildMealPlan = (props) => {
                     </Card.Body>
                 <br />
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>                
-                    <Button onClick={handleSubmit} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '10rem' }}>Submit</Button>
+                    <Button variant="success" onClick={handleSubmit} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '10rem' }}>Submit</Button>
                 </div> 
             </Card>
-            <h1>Click the buttons to add a menu for breakfast, lunch or dinner</h1>
+            <h1 style={{fontSize: "2rem"}}>Click the buttons to add a menu for breakfast, lunch or dinner</h1>
 
             <div className="recipes">
                 {recipes.map((recipe) => {
@@ -190,7 +191,6 @@ const BuildMealPlan = (props) => {
                     );
                 })}
             </div>
-
         </div>
     );
 }

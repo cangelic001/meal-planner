@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import { useDate } from '../DateContext';
 
 const DateSelector = () => {
-  // selectedDate was here
-  // handleDateChange was here
   const { selectedDate, handleDateChange } = useDate();
 
   const today = new Date().toLocaleDateString('en-CA');

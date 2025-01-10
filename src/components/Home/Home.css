@@ -1,0 +1,23 @@
+.browse {
+    color :white;
+    background-color: mediumvioletred;
+    border: none;
+    margin: 40px 20px 0 20px;
+    font-size: larger;
+}
+
+.create {
+    color :white;
+    background-color: palevioletred;
+    border: none;
+    margin: 40px 20px 0 20px;
+    font-size: larger;
+}
+
+.see {
+    color :white;
+    background-color: hotpink;
+    border: none;
+    margin: 40px 20px 0 20px;
+    font-size: larger;
+}

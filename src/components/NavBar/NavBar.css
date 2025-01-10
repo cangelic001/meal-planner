@@ -29,7 +29,7 @@
   }
   
   .tab-home:hover {
-    background: #ff98cb;
+    background: #ff3a9d;
     color: #ffffff;
   }
   
@@ -40,7 +40,7 @@
     font-size: 16px;
     font-weight: bold;
     padding: 10px 20px;
-    background: #b7dfff;
+    background: #ff95c8;
     border: 1px solid #ddd;
     border-left: none;
     border-bottom: none;
@@ -50,7 +50,7 @@
   }
   
   .tab-vm:hover {
-    background: #68cfff;
+    background: #fe2792;
     color: #ffffff;
   }
   
@@ -61,7 +61,7 @@
     font-size: 16px;
     font-weight: bold;
     padding: 10px 20px;
-    background: #fff3b7;
+    background: #ff7fc1;
     border: 1px solid #ddd;
     border-left: none;
     border-bottom: none;
@@ -71,7 +71,7 @@
   }
   
   .tab-bmp:hover {
-    background: #fbe200;
+    background: #ff27a5;
     color: #ffffff;
   }
   
@@ -82,7 +82,7 @@
     font-size: 16px;
     font-weight: bold;
     padding: 10px 20px;
-    background: #b4fbce;
+    background: #ff6fb9;
     border: 1px solid #ddd;
     border-left: none;
     border-bottom: none;
@@ -92,7 +92,7 @@
   }
   
   .tab-vmp:hover {
-    background: #6dff49;
+    background: #ff1476;
     color: #ffffff;
   }
   

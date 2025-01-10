@@ -29,3 +29,38 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+}
+
+.tagline {
+  font-weight: bold;
+  font-size: 2rem;
+  color: mediumvioletred;
+  animation: fadeInOut 1s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    color: mediumvioletred;
+  }
+  50% {
+    opacity: 1;
+    color: #ff69b4;  
+  }
+  100% {
+    opacity: 0;
+    color: mediumvioletred;
+  }
+}
+
+.ribbon {
+  height: 4rem;
+  width: auto;
+  margin-top: 60px;
+}

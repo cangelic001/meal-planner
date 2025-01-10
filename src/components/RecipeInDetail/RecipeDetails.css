@@ -1,0 +1,48 @@
+.card-scrollable {
+    overflow: auto;
+    max-height: 60rem; 
+    width: 30rem;
+    padding: 10px;
+}
+
+.card-scrollable::-webkit-scrollbar {
+    width: 10px; 
+}
+
+.card-scrollable::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 10px;
+}
+
+.card-scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+}
+
+.bold-header {
+    font-weight: bold;
+    color: mediumvioletred;
+}
+
+.recipe-title {
+    font-weight: bold;
+    color: hotpink;
+}
+
+ul {
+    text-align: center;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    display: block; 
+}
+
+ol {
+    list-style-position: inside;  
+    padding-left: 30px;           
+}
+
+ol li {
+    text-align: left;  
+}

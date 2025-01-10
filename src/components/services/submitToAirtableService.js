@@ -19,7 +19,7 @@ const submitMealPlanToAirtable = async (mealData) => {
       },
     });
 
-    console.log("Submitting meal data:", body);  // Add this to check the payload
+    console.log("Submitting meal data:", body);  
     
     try {
       const response = await fetch(AIRTABLE_URL, {
@@ -44,4 +44,4 @@ const submitMealPlanToAirtable = async (mealData) => {
   
 };
 
-export default submitMealPlanToAirtable;
+export { submitMealPlanToAirtable };
