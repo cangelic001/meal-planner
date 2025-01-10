@@ -34,12 +34,6 @@ const App = () => {
     lunch: 0,
     dinner: 0
    }
-  const [dailyPlanBuilder, setDailyPlanBuilder] = useState([initialPlan])
-
-  const addToPlan = (mealChosen) => {
-    setDailyPlanBuilder({...dailyPlanBuilder, [mealType]: mealName})
-
-  };
 
   return (
     <>
